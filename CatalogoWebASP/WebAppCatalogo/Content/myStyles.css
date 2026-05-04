@@ -5,11 +5,25 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5f5cff 0%, #7a5cff 40%, #b06ab3 70%, #ff7ac6 100%);
+}
+
+
+
 /* CONTENEDOR */
 .auth {
     display: flex;
-    height: 70vh;
+    width: 900px;
+    height: 500px;
     font-family: 'Segoe UI', sans-serif;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* LEFT */

@@ -1,23 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebAppCatalogo.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login1.aspx.cs" Inherits="WebAppCatalogo.Formulario_web1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Ingresa a nuestra web</title>
-        <link href="~/Content/myStyles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <form id="form1" runat="server">
-         <main class="auth">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+        <main class="auth">
 
             <!-- LEFT -->
             <section class="auth__left">
                 <div class="auth__content">
-                    <h1 class="auth__title">Bienvenidos</h1>
+                    <h1 class="auth__title">Welcome to website</h1>
                     <p class="auth__text">
-                        Encuentra lo que buscas en nuestro catalogo de productos                   
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                   
                     </p>
                 </div>
             </section>
@@ -25,7 +17,7 @@
             <!-- RIGHT -->
             <section class="auth__right">
                 <div class="login">
-                    <h2 class="login__title">Login de usuario</h2>
+                    <h2 class="login__title">USER LOGIN</h2>
 
                     <div class="login__group">
                         <asp:TextBox ID="txtEmail" runat="server"
@@ -48,6 +40,4 @@
             </section>
 
         </main>
-    </form>
-</body>
-</html>
+</asp:Content>

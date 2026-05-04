@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebAppCatalogo
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Formulario_web1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
