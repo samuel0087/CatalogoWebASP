@@ -1,0 +1,91 @@
+﻿/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR */
+.auth {
+    display: flex;
+    height: 70vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* LEFT */
+.auth__left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: linear-gradient(135deg, #5f5cff, #ff7ac6);
+}
+
+.auth__content {
+    max-width: 350px;
+}
+
+.auth__title {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.auth__text {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* RIGHT */
+.auth__right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f3f3;
+}
+
+/* LOGIN */
+.login {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.login__title {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #6b6b6b;
+    letter-spacing: 1px;
+}
+
+/* INPUTS */
+.login__group {
+    margin-bottom: 15px;
+}
+
+.login__input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #eaeaea;
+    outline: none;
+}
+
+/* BUTTON */
+.login__button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #a855f7, #ff7ac6);
+    transition: 0.2s;
+}
+
+    .login__button:hover {
+        opacity: 0.9;
+    }
