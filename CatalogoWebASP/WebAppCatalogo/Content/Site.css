@@ -34,7 +34,6 @@ body {
     margin: 0;
     background-image: url("Images/pattern.png"), linear-gradient(135deg, #5a60ff 0%, #8f5cff 50%, #ff7ac6 100%);
     background-repeat: repeat, no-repeat;
-    background-size: 360px auto, cover;
     background-position: top left, center;
     background-attachment: fixed;
 }
@@ -51,7 +50,8 @@ body {
 }
 
 /*Perfil*/
-.profile-page {
+.profile-page,
+.main-default{
     min-height: 100vh;
     padding: 40px;
     display: flex;
@@ -61,7 +61,8 @@ body {
 
 }
 
-.profile-card {
+.profile-card,
+.main-card{
     width: 900px;
     background: #ffffff;
     border-radius: 8px;
@@ -69,13 +70,19 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.profile-card__header {
+.main-card{
+    width:1200px;
+}
+
+.profile-card__header,
+.main-card__header{
     padding: 35px 45px;
     color: #ffffff;
     background: linear-gradient(135deg, #6a5cff, #ff7ac6);
 }
 
-.profile-card__title {
+.profile-card__title,
+.main-card__title {
     margin: 0;
     font-size: 32px;
     font-weight: 700;
@@ -87,7 +94,8 @@ body {
     opacity: 0.9;
 }
 
-.profile-card__body {
+.profile-card__body,
+.main-card__body {
     display: flex;
     gap: 40px;
     padding: 45px;
