@@ -100,6 +100,8 @@ body {
     transition: 0.2s;
 }
 
-    .login__button:hover {
-        opacity: 0.9;
-    }
+.login__button:hover {
+    opacity: 0.9;
+}
+
+
