@@ -32,7 +32,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
     margin: 0;
-    background-image: url("Images/pattern.png"), linear-gradient(135deg, #5a60ff 0%, #8f5cff 50%, #ff7ac6 100%);
+    background-image: url("Images/pattern.png"), linear-gradient( 135deg, #6a5cff 0%, #8f6bff 35%, #c86dd7 68%, #ff7ab6 100% );
     background-repeat: repeat, no-repeat;
     background-position: top left, center;
     background-attachment: fixed;
@@ -198,4 +198,80 @@ body {
     margin-top: 12px;
     color: #999;
     font-size: 12px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    padding: 40px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16), 0 6px 14px rgba(106, 92, 255, 0.18);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 26px 50px rgba(0, 0, 0, 0.22), 0 8px 18px rgba(106, 92, 255, 0.22);
+    }
+
+.product-card__image-box {
+    height: 180px;
+    background: linear-gradient(135deg, #eee9ff, #fff0fb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card__image {
+    max-width: 80%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.product-card__content {
+    padding: 22px;
+}
+
+.product-card__title {
+    margin: 0 0 8px;
+    color: #4b3fd6;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.product-card__description {
+    margin: 0 0 18px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.product-card__price {
+    color: #d95fc4;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.product-card__button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(90deg, #d95fc4, #6a5cff);
 }
