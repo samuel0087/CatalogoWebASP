@@ -10,21 +10,27 @@
             </div>
             <div class="main-card__body">
                 <section class="products">
-                    <article class="product-card">
-                        <div class="product-card__image-box">
-                            <img src="Content/img/producto-1.png" alt="Producto" class="product-card__image" />
-                        </div>
 
-                        <div class="product-card__content">
-                            <h3 class="product-card__title">Nombre del producto</h3>
-                            <p class="product-card__description">Descripción breve del producto.</p>
+                    <asp:Repeater runat="server" ID="rtrArticulos">
+                        <ItemTemplate>
+                            <article class="product-card">
+                                <div class="product-card__image-box">
+                                    <img src="<%# Eval("UrlImagen") == "" ? "https://all.chapanegra.com/shop/" : Eval("UrlImagen") %>" alt="Producto" class="product-card__image" />
+                                </div>
 
-                            <div class="product-card__footer">
-                                <span class="product-card__price">$12.500</span>
-                                <asp:Button ID="btnDetalle1" runat="server" Text="Ver detalle" CssClass="product-card__button" />
-                            </div>
-                        </div>
-                    </article>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title"><%# Eval("Nombre") %></h3>
+                                    <p class="product-card__description"><%# Eval("Descripcion") %></p>
+
+                                    <div class="product-card__footer">
+                                        <span class="product-card__price"><%# Eval("Precio") %></span>
+                                        <asp:Button ID="btnDetalle" runat="server" CommandArgument='<%# Eval("IdArticulo") %>' Text="Ver detalle" CssClass="product-card__button" OnClick="btnDetalle_Click" />
+                                    </div>
+                                </div>
+                            </article>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                   
                 </section>
 
             </div>
@@ -33,3 +39,21 @@
     </main>
 
 </asp:Content>
+
+
+<%--            <asp:Repeater runat="server" ID="repRepeater">
+                <ItemTemplate>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="<%# Eval("UrlImagen") == "" ? "https://www.vhv.rs/dpng/d/424-4249607_poke-ball-png-pokeball-png-transparent-png.png" : Eval("UrlImagen") %>" class="card-img-top" alt="<%# Eval("Nombre")%>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%#  Eval("Nombre") %></h5>
+                                <p class="card-text"><%# Eval("Descripcion")%></p>
+                                <a href="detalles.aspx?id=<%# Eval("Id") %>" class="btn btn-primary">Ver detalles</a>
+                                <asp:Button Text="Ejemplo" ID="btnEjemplo" CssClass="btn btn-danger"  runat="server" CommandArgument='<%#Eval("Id")%>' CommandName="pokemonId" OnClick="btnEjemplo_Click" />
+                            </div>
+                        </div>
+                    </div>
+
+                </ItemTemplate>
+            </asp:Repeater>--%>

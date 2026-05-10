@@ -1,0 +1,76 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
+}
+
+.error-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 55px 45px;
+    text-align: center;
+    background: #f5f2ff;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22), 0 8px 20px rgba(106, 92, 255, 0.22);
+}
+
+.error-card__code {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #d95fc4, #6a5cff);
+    box-shadow: 0 12px 25px rgba(106, 92, 255, 0.28);
+}
+
+.error-card__title {
+    margin-bottom: 14px;
+    color: #4b3fd6;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.error-card__text {
+    display:block;
+    max-width: 390px;
+    margin: 0 auto 32px;
+    color: #777;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.error-card__button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(90deg, #d95fc4, #6a5cff);
+    transition: 0.2s;
+}
+
+    .error-card__button:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }

@@ -58,6 +58,53 @@ namespace negocio
             }
         }
 
+        public Articulo buscarPorId(int Id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, m.Id AS IDMarca, m.Descripcion AS Marca, c.Id AS IDCategoria, c.Descripcion AS Categoria, a.ImagenUrl, a.Precio " +
+                           "FROM ARTICULOS a " +
+                           "INNER JOIN MARCAS m ON m.Id = a.IdMarca " +
+                           "INNER JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE a.Id = @id";
+
+            try
+            {
+                Articulo aux = null;
+                datos.setearConsulta(query);
+                datos.setearParametro("id", Id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux = new Articulo();
+                    aux.IdArticulo = datos.Lector["Id"] is DBNull ? 0 : (int)datos.Lector["Id"];
+                    aux.Codigo = datos.Lector["Codigo"] is DBNull ? "" : (string)datos.Lector["Codigo"];
+                    aux.Nombre = datos.Lector["Nombre"] is DBNull ? "" : (string)datos.Lector["Nombre"];
+                    aux.Descripcion = datos.Lector["Descripcion"] is DBNull ? "" : (string)datos.Lector["Descripcion"];
+                    aux.UrlImagen = datos.Lector["ImagenUrl"] is DBNull ? "" : (string)datos.Lector["ImagenUrl"];
+                    aux.Precio = datos.Lector["Precio"] is DBNull ? 0 : Math.Round((decimal)datos.Lector["Precio"], 2);
+
+                    aux.Marca = new Marca();
+                    aux.Marca.IdMarca = datos.Lector["IDMarca"] is DBNull ? 0 : (int)datos.Lector["IDMarca"];
+                    aux.Marca.Nombre = datos.Lector["Marca"] is DBNull ? "" : (string)datos.Lector["Marca"];
+
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.IdCategoria = datos.Lector["IDCategoria"] is DBNull ? 0 : (int)datos.Lector["IDCategoria"];
+                    aux.Categoria.Nombre = datos.Lector["Categoria"] is DBNull ? "" : (string)datos.Lector["Categoria"];
+
+                }
+
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public List<Articulo> busquedaAvanzada(string campo, string criterio, string filtro)
         {
             List<Articulo> listaFiltrada = new List<Articulo>();
