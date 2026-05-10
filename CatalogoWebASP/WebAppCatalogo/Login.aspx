@@ -43,7 +43,8 @@
 
                     <asp:Button ID="btnLogin" runat="server"
                         Text="LOGIN"
-                        CssClass="login__button" />
+                        CssClass="login__button"
+                        OnClick="btnLogin_Click"/>
                 </div>
             </section>
 

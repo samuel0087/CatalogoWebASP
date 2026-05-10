@@ -23,7 +23,7 @@
                                     <p class="product-card__description"><%# Eval("Descripcion") %></p>
 
                                     <div class="product-card__footer">
-                                        <span class="product-card__price"><%# Eval("Precio") %></span>
+                                        <span class="product-card__price">$<%# string.Format(new System.Globalization.CultureInfo("es-AR"), "{0:N2}", Eval("Precio")) %></span>
                                         <asp:Button ID="btnDetalle" runat="server" CommandArgument='<%# Eval("IdArticulo") %>' Text="Ver detalle" CssClass="product-card__button" OnClick="btnDetalle_Click" />
                                     </div>
                                 </div>

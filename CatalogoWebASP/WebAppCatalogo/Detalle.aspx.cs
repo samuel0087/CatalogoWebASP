@@ -2,6 +2,7 @@
 using negocio;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -34,7 +35,7 @@ namespace WebAppCatalogo
                         imgProducto.ImageUrl = ArticuloDetalle.UrlImagen;
                         lblNombre.Text = ArticuloDetalle.Nombre;
                         lblDescripcion.Text = ArticuloDetalle.Descripcion;
-                        lblPrecio.Text = ArticuloDetalle.Precio.ToString();
+                        lblPrecio.Text = ArticuloDetalle.Precio.ToString("N2", new CultureInfo("es-AR"));
                     }
                 }
                 else
