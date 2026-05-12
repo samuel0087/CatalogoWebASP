@@ -51,18 +51,17 @@ body {
 
 /*Perfil*/
 .profile-page,
-.main-default{
+.main-default {
     min-height: 100vh;
     padding: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Segoe UI', sans-serif;
-
 }
 
 .profile-card,
-.main-card{
+.main-card {
     width: 900px;
     background: #ffffff;
     border-radius: 8px;
@@ -70,12 +69,12 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.main-card{
-    width:1200px;
+.main-card {
+    width: 1200px;
 }
 
 .profile-card__header,
-.main-card__header{
+.main-card__header {
     padding: 35px 45px;
     color: #ffffff;
     background: linear-gradient(135deg, #6a5cff, #ff7ac6);
@@ -292,10 +291,10 @@ body {
     padding: 20px 10px;
 }
 
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 26px 50px rgba(0, 0, 0, 0.22), 0 8px 18px rgba(106, 92, 255, 0.22);
-}
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 26px 50px rgba(0, 0, 0, 0.22), 0 8px 18px rgba(106, 92, 255, 0.22);
+    }
 
 .product-card__image-box {
     height: 180px;
@@ -322,7 +321,7 @@ body {
     margin: 0 0 8px;
     color: #4b3fd6;
     font-size: 18px;
-    text-align:center;
+    text-align: center;
     font-weight: 700;
 }
 
@@ -335,7 +334,7 @@ body {
 
 .product-card__footer {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
@@ -374,7 +373,6 @@ body {
     grid-template-columns: 420px 1fr;
     gap: 50px;
     padding: 45px;
-
 }
 
 .product-detail__image-box {
@@ -383,12 +381,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .product-detail__image {
     max-width: 100%;
-
     object-fit: contain;
 }
 
@@ -475,5 +471,243 @@ body {
 
     .product-detail__title {
         font-size: 32px;
+    }
+}
+
+/*Formilario Articulo*/
+.product-form-page {
+    min-height: calc(100vh - 56px);
+    padding: 55px;
+    background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
+}
+
+.product-form-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #f5f2ff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22), 0 8px 20px rgba(106, 92, 255, 0.22);
+}
+
+.product-form-card__header {
+    padding: 42px 50px;
+    color: #ffffff;
+    background: linear-gradient(120deg, #5f60ff 0%, #7c5cff 30%, #b46dff 65%, #ff78b2 100%);
+}
+
+.product-form-card__title {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.product-form-card__subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: .92;
+}
+
+.product-form-card__body {
+    display: grid;
+    grid-template-columns: 1fr 310px;
+    gap: 36px;
+    padding: 45px;
+}
+
+.product-form__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.product-form__group {
+    margin-bottom: 22px;
+}
+
+.product-form__label {
+    display: block;
+    margin-bottom: 9px;
+    color: #6a5cff;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.product-form__input,
+.product-form__select,
+.product-form__textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    background: #eee9ff;
+    color: #333;
+    font-size: 14px;
+    padding: 14px 16px;
+}
+
+.product-form__textarea {
+    resize: vertical;
+    min-height: 110px;
+    width: 95%;
+    min-width: 95%;
+    max-width: 100%;
+}
+
+    .product-form__input:focus,
+    .product-form__select:focus,
+    .product-form__textarea:focus {
+        box-shadow: 0 0 0 3px rgba(106, 92, 255, 0.18);
+    }
+
+.product-form__actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.product-form__button {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.product-form__button--primary {
+    color: #ffffff;
+    background: linear-gradient(90deg, #d95fc4, #6a5cff);
+}
+
+.product-form__button--secondary {
+    color: #6a5cff;
+    background: #eee9ff;
+}
+
+.product-form__button:hover {
+    transform: translateY(-2px);
+    opacity: .92;
+}
+
+/* PREVIEW */
+
+.product-preview {
+    height: fit-content;
+    padding: 26px;
+    border-radius: 20px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.10), 0 6px 14px rgba(106, 92, 255, 0.14);
+}
+
+.product-preview__title {
+    margin-bottom: 22px;
+    color: #4b3fd6;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.product-preview__image-box {
+    height: 260px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #eee9ff, #fff0fb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-preview__image {
+    max-width: 85%;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.product-preview__hint {
+    margin-top: 18px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.product-form__danger-zone {
+    margin-top: 45px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.product-form__button-delete {
+    margin-right: 30px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient( 90deg, #ff4d6d, #d90429 );
+    box-shadow: 0 10px 24px rgba(217, 4, 41, 0.24);
+    transition: .2s;
+}
+
+    .product-form__button-delete:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(217, 4, 41, 0.32);
+    }
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .product-form-card__body {
+        grid-template-columns: 1fr;
+    }
+
+    .product-preview {
+        order: -1;
+    }
+
+    .product-form__input,
+    .product-form__textarea {
+        width: 100%
+    }
+    .product-form__button-delete{
+        margin: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .product-form-page {
+        padding: 25px;
+    }
+
+    .product-form-card__header {
+        padding: 32px;
+    }
+
+    .product-form-card__body {
+        padding: 30px;
+    }
+
+    .product-form__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .product-form__actions {
+        flex-direction: column;
+    }
+
+    .product-form__button {
+        width: 100%;
+    }
+
+    .product-form__input,
+    .product-form__textarea {
+        max-width: 100%;
+        width: 100%
     }
 }
