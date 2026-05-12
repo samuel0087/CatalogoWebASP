@@ -9,6 +9,60 @@
                 <p class="lead">Navega entre nuestros productos y selecciona tus favoritos</p>
             </div>
             <div class="main-card__body">
+
+                <!-- SIDEBAR -->
+                <aside class="catalog-sidebar">
+
+                    <h2 class="catalog-sidebar__title">Filtros
+        </h2>
+
+                    <div class="catalog-sidebar__group">
+                        <label class="catalog-sidebar__label">
+                            Buscar producto
+           
+                        </label>
+
+                        <asp:TextBox
+                            ID="txtBuscar"
+                            runat="server"
+                            CssClass="catalog-sidebar__input"
+                            placeholder="Nombre del producto..." />
+                    </div>
+
+                    <div class="catalog-sidebar__group">
+                        <label class="catalog-sidebar__label">
+                            Marca
+           
+                        </label>
+
+                        <asp:DropDownList
+                            ID="ddlMarca"
+                            runat="server"
+                            CssClass="catalog-sidebar__select">
+                        </asp:DropDownList>
+                    </div>
+
+                    <div class="catalog-sidebar__group">
+                        <label class="catalog-sidebar__label">
+                            Categoría
+           
+                        </label>
+
+                        <asp:DropDownList
+                            ID="ddlCategoria"
+                            runat="server"
+                            CssClass="catalog-sidebar__select">
+                        </asp:DropDownList>
+                    </div>
+
+                    <asp:Button
+                        ID="btnFiltrar"
+                        runat="server"
+                        Text="Aplicar filtros"
+                        CssClass="catalog-sidebar__button" />
+
+                </aside>
+
                 <section class="products">
 
                     <asp:Repeater runat="server" ID="rtrArticulos">
@@ -20,7 +74,7 @@
 
                                 <div class="product-card__content">
                                     <h3 class="product-card__title"><%# Eval("Nombre") %></h3>
-                                    <p class="product-card__description"><%# Eval("Descripcion") %></p>
+                                   <%-- <p class="product-card__description"><%# Eval("Descripcion") %></p>--%>
 
                                     <div class="product-card__footer">
                                         <span class="product-card__price">$<%# string.Format(new System.Globalization.CultureInfo("es-AR"), "{0:N2}", Eval("Precio")) %></span>
@@ -30,7 +84,7 @@
                             </article>
                         </ItemTemplate>
                     </asp:Repeater>
-                   
+
                 </section>
 
             </div>

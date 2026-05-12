@@ -19,13 +19,14 @@
                     <asp:Label ID="lblNombre" runat="server" Text="Galaxy S10" />
                 </h1>
 
+                <div class="product-detail__price">
+                    $<asp:Label ID="lblPrecio" runat="server" Text="70,00" />
+                </div>
+
                 <p class="product-detail__description">
                     <asp:Label ID="lblDescripcion" runat="server" Text="Descripción completa del producto." />
                 </p>
 
-                <div class="product-detail__price">
-                    $<asp:Label ID="lblPrecio" runat="server" Text="70,00" />
-                </div>
 
                 <div class="product-detail__actions">
                     <asp:Button
