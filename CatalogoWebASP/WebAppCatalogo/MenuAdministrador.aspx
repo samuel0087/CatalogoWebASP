@@ -15,7 +15,7 @@
 
             <section class="admin-menu">
 
-                <a href="ProductoForm.aspx" class="admin-card">
+                <a href="AdminProducto.aspx" class="admin-card">
                     <span class="admin-card__icon">📦</span>
                     <h2 class="admin-card__title">Artículos</h2>
                     <p class="admin-card__text">
