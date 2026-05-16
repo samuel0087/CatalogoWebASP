@@ -25,7 +25,7 @@
                     <span class="admin-card__action">Administrar</span>
                 </a>
 
-                <a href="Marcas.aspx" class="admin-card">
+                <a href="AdminTipos.aspx?tipo=marca" class="admin-card">
                     <span class="admin-card__icon">🏷️</span>
                     <h2 class="admin-card__title">Marcas</h2>
                     <p class="admin-card__text">
@@ -35,7 +35,7 @@
                     <span class="admin-card__action">Administrar</span>
                 </a>
 
-                <a href="Categorias.aspx" class="admin-card">
+                <a href="AdminTipos.aspx?tipo=categoria" class="admin-card">
                     <span class="admin-card__icon">🗂️</span>
                     <h2 class="admin-card__title">Categorías</h2>
                     <p class="admin-card__text">

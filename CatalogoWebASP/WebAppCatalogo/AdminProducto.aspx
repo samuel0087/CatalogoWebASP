@@ -105,13 +105,6 @@
                                         <div class="admin-products-table__actions">
 
                                             <asp:Button
-                                                ID="btnVer"
-                                                runat="server"
-                                                Text="Ver"
-                                                CssClass="admin-products-table__action admin-products-table__action--view"
-                                                CommandArgument='<%# Eval("IdArticulo") %>' />
-
-                                            <asp:Button
                                                 ID="btnEditar"
                                                 runat="server"
                                                 Text="Editar"

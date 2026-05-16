@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminProducto.aspx" />
+    <Content Include="AdminTipos.aspx" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="AdminProducto.aspx.designer.cs">
       <DependentUpon>AdminProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTipos.aspx.cs">
+      <DependentUpon>AdminTipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTipos.aspx.designer.cs">
+      <DependentUpon>AdminTipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
