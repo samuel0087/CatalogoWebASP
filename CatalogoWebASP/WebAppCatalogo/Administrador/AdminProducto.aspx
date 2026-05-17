@@ -26,23 +26,31 @@
                             ID="txtBuscar"
                             runat="server"
                             CssClass="admin-products-filter__input"
-                            placeholder="Buscar por nombre o código..."
+                            placeholder="Buscar por nombre, código o descripcion"
                             AutoPostBack="true"
-                            OnTextChanged="txtBuscar_TextChanged"/>
+                            OnTextChanged="txtBuscar_TextChanged" />
 
                         <asp:DropDownList
                             ID="ddlMarca"
                             runat="server"
                             CssClass="admin-products-filter__select"
                             AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged"/>
+                            OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged">
+
+                              <asp:ListItem Text="Todas las marcas" Value="0" />
+                        </asp:DropDownList>
+
 
                         <asp:DropDownList
                             ID="ddlCategoria"
                             runat="server"
                             CssClass="admin-products-filter__select"
                             AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"/>
+                            OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged" >
+
+                            <asp:ListItem Text="Todas las Categorias" Value="0" />
+
+                        </asp:DropDownList>
 
                         <%--<asp:Button
                             ID="btnBuscar"
@@ -52,89 +60,99 @@
                     </section>
 
                     <div class="admin-products-table-wrapper">
+                        <asp:Panel ID="pnlSinResultados" runat="server" Visible="false">
+                            No se encontraron productos.
+                        </asp:Panel>
 
-                        <table class="admin-products-table">
-                            <thead>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Imagen</th>
-                                    <th>Producto</th>
-                                    <th>Marca</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
+                        <asp:Panel ID="tablaCatalogo" runat="server">
 
-                            <tbody>
-                                <asp:Repeater ID="rtrProductos" runat="server">
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <span class="admin-products-table__code">
-                                                    <%# Eval("Codigo") %>
-                                                </span>
-                                            </td>
+                            <table class="admin-products-table">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Imagen</th>
+                                        <th>Producto</th>
+                                        <th>Marca</th>
+                                        <th>Categoría</th>
+                                        <th>Precio</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
 
-                                            <td>
-                                                <img
-                                                    src='<%# Eval("UrlImagen") %>'
-                                                    alt="Producto"
-                                                    class="admin-products-table__image" />
-                                            </td>
+                                <tbody>
+                                    <asp:Repeater ID="rtrProductos" runat="server">
+                                        <ItemTemplate>
 
-                                            <td>
-                                                <strong class="admin-products-table__name">
-                                                    <%# Eval("Nombre") %>
-                                                </strong>
 
-                                                <p class="admin-products-table__description">
-                                                    <%# Eval("Descripcion") %>
-                                                </p>
-                                            </td>
 
-                                            <td>
-                                                <span class="admin-products-table__badge">
-                                                    <%# Eval("Marca.Nombre") %>
-                                                </span>
-                                            </td>
 
-                                            <td>
-                                                <span class="admin-products-table__badge admin-products-table__badge--soft">
-                                                    <%# Eval("Categoria.Nombre") %>
-                                                </span>
-                                            </td>
+                                            <tr>
+                                                <td>
+                                                    <span class="admin-products-table__code">
+                                                        <%# Eval("Codigo") %>
+                                                    </span>
+                                                </td>
 
-                                            <td>
-                                                <span class="admin-products-table__price">$ <%# string.Format("{0:N2}", Eval("Precio")) %>
-                                                </span>
-                                            </td>
+                                                <td>
+                                                    <img
+                                                        src='<%# Eval("UrlImagen") %>'
+                                                        alt="Producto"
+                                                        class="admin-products-table__image" />
+                                                </td>
 
-                                            <td>
-                                                <div class="admin-products-table__actions">
+                                                <td>
+                                                    <strong class="admin-products-table__name">
+                                                        <%# Eval("Nombre") %>
+                                                    </strong>
 
-                                                    <asp:Button
-                                                        ID="btnEditar"
-                                                        runat="server"
-                                                        Text="Editar"
-                                                        CssClass="admin-products-table__action admin-products-table__action--edit"
-                                                        CommandArgument='<%# Eval("IdArticulo") %>'
-                                                        OnClick="btnEditar_Click" />
+                                                    <p class="admin-products-table__description">
+                                                        <%# Eval("Descripcion") %>
+                                                    </p>
+                                                </td>
 
-                                                    <asp:Button
-                                                        ID="btnEliminar"
-                                                        runat="server"
-                                                        Text="Eliminar"
-                                                        CssClass="admin-products-table__action admin-products-table__action--delete"
-                                                        CommandArgument='<%# Eval("IdArticulo") %>' />
+                                                <td>
+                                                    <span class="admin-products-table__badge">
+                                                        <%# Eval("Marca.Nombre") %>
+                                                    </span>
+                                                </td>
 
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </tbody>
-                        </table>
+                                                <td>
+                                                    <span class="admin-products-table__badge admin-products-table__badge--soft">
+                                                        <%# Eval("Categoria.Nombre") %>
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <span class="admin-products-table__price">$ <%# string.Format("{0:N2}", Eval("Precio")) %>
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <div class="admin-products-table__actions">
+
+                                                        <asp:Button
+                                                            ID="btnEditar"
+                                                            runat="server"
+                                                            Text="Editar"
+                                                            CssClass="admin-products-table__action admin-products-table__action--edit"
+                                                            CommandArgument='<%# Eval("IdArticulo") %>'
+                                                            OnClick="btnEditar_Click" />
+
+                                                        <asp:Button
+                                                            ID="btnEliminar"
+                                                            runat="server"
+                                                            Text="Eliminar"
+                                                            CssClass="admin-products-table__action admin-products-table__action--delete"
+                                                            CommandArgument='<%# Eval("IdArticulo") %>' />
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </asp:Panel>
 
                     </div>
 

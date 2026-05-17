@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,7 @@ namespace WebAppCatalogo
                 if (!IsPostBack)
                 {
                     cargarCatalogo((List<Articulo>)nProducto.listar());
+                    tablaCatalogo.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -70,9 +72,12 @@ namespace WebAppCatalogo
                     if(listaFiltrada.Count > 0)
                     {
                         cargarCatalogo(listaFiltrada);
+                        tablaCatalogo.Visible = listaFiltrada.Any();
                     }
                     else
                     {
+                        pnlSinResultados.Visible = !listaFiltrada.Any();
+                        tablaCatalogo.Visible = listaFiltrada.Any();
                         rtrProductos.DataSource = null;
                         rtrProductos.DataBind();
                     }
@@ -91,6 +96,15 @@ namespace WebAppCatalogo
 
         protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                //accion al desplegar
+            }
+            catch(Exception ex)
+            {
+                Session.Add("error", ex);
+                Response.Redirect("../Error.aspx");
+            }
 
         }
 
