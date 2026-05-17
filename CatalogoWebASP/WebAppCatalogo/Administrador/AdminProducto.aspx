@@ -11,11 +11,13 @@
                     <p class="admin-products-header__subtitle">Listado general de artículos del catálogo</p>
                 </div>
 
-                <asp:Button
+<%--                <asp:Button
                     ID="btnNuevoProducto"
                     runat="server"
                     Text="+ Crear producto"
-                    CssClass="admin-products-header__button" />
+                    CssClass="admin-products-header__button" />--%>
+                <a  href="FormProducto.aspx" class="admin-products-header__button">+ Crear producto</a>
+                    
             </header>
 
             <section class="admin-products-filter">
@@ -109,7 +111,8 @@
                                                 runat="server"
                                                 Text="Editar"
                                                 CssClass="admin-products-table__action admin-products-table__action--edit"
-                                                CommandArgument='<%# Eval("IdArticulo") %>' />
+                                                CommandArgument='<%# Eval("IdArticulo") %>'
+                                                OnClick="btnEditar_Click"/>
 
                                             <asp:Button
                                                 ID="btnEliminar"

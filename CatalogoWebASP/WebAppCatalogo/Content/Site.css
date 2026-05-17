@@ -252,7 +252,7 @@ body {
 .catalog-sidebar__input,
 .catalog-sidebar__select {
     width: 100%;
-    padding: 13px 15px;
+    padding: 8px 5px;
     border: none;
     outline: none;
     border-radius: 14px;
@@ -478,7 +478,7 @@ body {
 .product-form-page {
     min-height: calc(100vh - 56px);
     padding: 55px;
-    background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
+   // background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
 }
 
 .product-form-card {
@@ -717,7 +717,7 @@ body {
 .admin-products-page {
     min-height: calc(100vh - 56px);
     padding: 45px;
-    background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
+   // background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
 }
 
 .admin-products-panel {
@@ -752,6 +752,7 @@ body {
 }
 
 .admin-products-header__button {
+    text-decoration:none;
     padding: 13px 22px;
     border: none;
     border-radius: 25px;
@@ -759,18 +760,22 @@ body {
     background: #ffffff;
     font-weight: 800;
     cursor: pointer;
+    transition:all 300ms;
 }
 
-/* FILTROS */
+    .admin-products-header__button:hover {
+        box-shadow: 0 0 10px aliceblue;
+    }
 
-.admin-products-filter {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr auto;
-    gap: 16px;
-    padding: 28px 42px;
-    background: #ffffff;
-    border-bottom: 1px solid #eee9ff;
-}
+    /* FILTROS */
+    .admin-products-filter {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr auto;
+        gap: 16px;
+        padding: 28px 42px;
+        background: #ffffff;
+        border-bottom: 1px solid #eee9ff;
+    }
 
 .admin-products-filter__input,
 .admin-products-filter__select {
@@ -931,7 +936,7 @@ body {
 .admin-types-page {
     min-height: calc(100vh - 56px);
     padding: 45px;
-    background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
+    //background: linear-gradient( 135deg, rgba(106, 92, 255, 0.96) 0%, rgba(143, 107, 255, 0.94) 35%, rgba(200, 109, 215, 0.92) 68%, rgba(255, 122, 182, 0.90) 100% );
 }
 
 .admin-types-panel {

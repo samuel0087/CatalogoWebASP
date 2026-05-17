@@ -26,5 +26,18 @@ namespace WebAppCatalogo
             }
 
         }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("./FormProducto.aspx?edit=1");
+            }
+            catch(Exception ex)
+            {
+                Session.Add("error", ex);
+                Response.Redirect("../Error.aspx");
+            }
+        }
     }
 }
