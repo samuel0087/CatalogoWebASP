@@ -71,9 +71,6 @@
                                     <asp:Repeater ID="rtrProductos" runat="server">
                                         <ItemTemplate>
 
-
-
-
                                             <tr>
                                                 <td>
                                                     <span class="admin-products-table__code">
@@ -85,7 +82,8 @@
                                                     <img
                                                         src='<%# Eval("UrlImagen") %>'
                                                         alt="Producto"
-                                                        class="admin-products-table__image" />
+                                                        class="admin-products-table__image"
+                                                        onerror="this.src='../Content/Images/imagen_por_defecto.jpg';"/>
                                                 </td>
 
                                                 <td>

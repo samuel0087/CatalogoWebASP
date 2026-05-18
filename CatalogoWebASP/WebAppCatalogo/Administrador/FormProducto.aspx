@@ -74,7 +74,8 @@
                             ID="btnCancelar"
                             runat="server"
                             Text="Cancelar"
-                            CssClass="product-form__button product-form__button--secondary" />
+                            CssClass="product-form__button product-form__button--secondary" 
+                            OnClick="btnCancelar_Click"/>
 
                         <asp:Button
                             ID="btnGuardar"
@@ -86,7 +87,7 @@
                         ID="btnEliminar"
                         runat="server"
                         Text="Eliminar producto"
-                        CssClass="product-form__button-delete" />
+                        CssClass="product-form__button-delete" visible="false"/>
                     </div>
 
 
@@ -102,7 +103,7 @@
                             ID="imgPreview"
                             runat="server"
                             CssClass="product-preview__image"
-                            ImageUrl="~/Content/img/producto-default.png" />
+                            ImageUrl="~/Content/img/imagen_por_defecto.jpg" />
                     </div>
 
                     <p class="product-preview__hint">

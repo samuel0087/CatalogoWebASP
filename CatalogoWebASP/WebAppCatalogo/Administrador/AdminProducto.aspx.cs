@@ -78,7 +78,17 @@ namespace WebAppCatalogo
         {
             try
             {
-                Response.Redirect("./FormProducto.aspx?edit=1");
+                string id = ((Button)sender).CommandArgument;
+
+                if (!id.IsNullOrWhiteSpace())
+                {
+                    Response.Redirect("./FormProducto.aspx?id=" + id,false);
+                }
+                else
+                {
+                    Session.Add("error", new Exception("Producto seleccionado no disponible actualmente"));
+                    Response.Redirect("Error.aspx", false);
+                }
             }
             catch(Exception ex)
             {
@@ -102,6 +112,7 @@ namespace WebAppCatalogo
 
                     cargarCatalogo(listaFiltrada);
                     tablaCatalogo.Visible = listaFiltrada.Any();
+                    pnlSinResultados.Visible = false;
                 }
                 else
                 {

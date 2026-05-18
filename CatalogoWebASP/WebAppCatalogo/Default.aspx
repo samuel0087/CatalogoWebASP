@@ -10,86 +10,97 @@
             </div>
             <div class="main-card__body">
 
-                <!-- SIDEBAR -->
-                <aside class="catalog-sidebar">
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                        <aside class="catalog-sidebar">
 
-                    <h2 class="catalog-sidebar__title">Filtros
-        </h2>
+                            <h2 class="catalog-sidebar__title">Filtros</h2>
 
-                    <div class="catalog-sidebar__group">
-                        <label class="catalog-sidebar__label">
-                            Buscar producto
+                            <div class="catalog-sidebar__group">
+                                <label class="catalog-sidebar__label">
+                                    Buscar producto
            
-                        </label>
+                                </label>
 
-                        <asp:TextBox
-                            ID="txtBuscar"
-                            runat="server"
-                            CssClass="catalog-sidebar__input"
-                            placeholder="Nombre del producto..." />
-                    </div>
+                                <asp:TextBox
+                                    ID="txtBuscar"
+                                    runat="server"
+                                    CssClass="catalog-sidebar__input"
+                                    placeholder="Nombre del producto..." />
+                            </div>
 
-                    <div class="catalog-sidebar__group">
-                        <label class="catalog-sidebar__label">
-                            Marca
+                            <div class="catalog-sidebar__group">
+                                <label class="catalog-sidebar__label">
+                                    Marca
            
-                        </label>
+                                </label>
 
-                        <asp:DropDownList
-                            ID="ddlMarca"
-                            runat="server"
-                            CssClass="catalog-sidebar__select">
-                        </asp:DropDownList>
-                    </div>
+                                <asp:DropDownList
+                                    ID="ddlMarca"
+                                    runat="server"
+                                    CssClass="catalog-sidebar__select">
+                                </asp:DropDownList>
+                            </div>
 
-                    <div class="catalog-sidebar__group">
-                        <label class="catalog-sidebar__label">
-                            Categoría
+                            <div class="catalog-sidebar__group">
+                                <label class="catalog-sidebar__label">
+                                    Categoría
            
-                        </label>
+                                </label>
 
-                        <asp:DropDownList
-                            ID="ddlCategoria"
-                            runat="server"
-                            CssClass="catalog-sidebar__select">
-                        </asp:DropDownList>
-                    </div>
+                                <asp:DropDownList
+                                    ID="ddlCategoria"
+                                    runat="server"
+                                    CssClass="catalog-sidebar__select">
+                                </asp:DropDownList>
+                            </div>
 
-                    <asp:Button
-                        ID="btnFiltrar"
-                        runat="server"
-                        Text="Aplicar filtros"
-                        CssClass="catalog-sidebar__button" />
+                            <asp:Button
+                                ID="btnFiltrar"
+                                runat="server"
+                                Text="Aplicar filtros"
+                                CssClass="catalog-sidebar__button"
+                                OnClick="btnFiltrar_Click" />
 
-                </aside>
+                        </aside>
 
-                <section class="products">
+                        <section class="products">
 
-                    <asp:Repeater runat="server" ID="rtrArticulos">
-                        <ItemTemplate>
-                            <article class="product-card">
-                                <div class="product-card__image-box">
-                                    <img src="<%# Eval("UrlImagen") == "" ? "https://all.chapanegra.com/shop/" : Eval("UrlImagen") %>" alt="Producto" class="product-card__image" />
-                                </div>
+                            <asp:Panel ID="pnlSinResultados" runat="server" Visible="false" CssClass="ignorado">
+                                No se encontraron productos.
+                            </asp:Panel>
 
-                                <div class="product-card__content">
-                                    <h3 class="product-card__title"><%# Eval("Nombre") %></h3>
-                                   <%-- <p class="product-card__description"><%# Eval("Descripcion") %></p>--%>
+                            <asp:Panel runat="server" ID="grillaCatalogo" CssClass="ignorado" >
+                                <asp:Repeater runat="server" ID="rtrArticulos">
+                                    <ItemTemplate>
+                                        <article class="product-card">
+                                            <div class="product-card__image-box">
+                                                <img src="<%# Eval("UrlImagen") %>" alt="Producto" class="product-card__image"  onerror="this.src='Content/Images/imagen_por_defecto.jpg';"/>
+                                            </div>
 
-                                    <div class="product-card__footer">
-                                        <span class="product-card__price">$<%# string.Format(new System.Globalization.CultureInfo("es-AR"), "{0:N2}", Eval("Precio")) %></span>
-                                        <asp:Button ID="btnDetalle" runat="server" CommandArgument='<%# Eval("IdArticulo") %>' Text="Ver detalle" CssClass="product-card__button" OnClick="btnDetalle_Click" />
-                                    </div>
-                                </div>
-                            </article>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                                            <div class="product-card__content">
+                                                <h3 class="product-card__title"><%# Eval("Nombre") %></h3>
+                                                <%-- <p class="product-card__description"><%# Eval("Descripcion") %></p>--%>
 
-                </section>
+                                                <div class="product-card__footer">
+                                                    <span class="product-card__price">$<%# string.Format(new System.Globalization.CultureInfo("es-AR"), "{0:N2}", Eval("Precio")) %></span>
+                                                    <asp:Button ID="btnDetalle" runat="server" CommandArgument='<%# Eval("IdArticulo") %>' Text="Ver detalle" CssClass="product-card__button" OnClick="btnDetalle_Click" />
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </asp:Panel>
+
+                        </section>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
             </div>
         </section>
 
+
+        <!-- SIDEBAR -->
     </main>
 
 </asp:Content>

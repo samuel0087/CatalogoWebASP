@@ -28,6 +28,10 @@ textarea {
     box-sizing: border-box;
 }
 
+.ignorado {
+    display: contents;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
@@ -94,7 +98,7 @@ body {
 }
 
 .profile-card__body,
-.main-card__body {
+.main-card__body>div {
     display: flex;
     gap: 40px;
     padding: 45px;
@@ -207,6 +211,7 @@ body {
 }
 */
 .products {
+    flex: 3;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 28px;
@@ -222,8 +227,10 @@ body {
 /* SIDEBAR */
 
 .catalog-sidebar {
+    max-width: 250px;
+    flex: 1;
     height: fit-content;
-    padding: 28px;
+    padding: 20px;
     background: rgba(255,255,255,0.92);
     border-radius: 22px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 6px 14px rgba(106,92,255,0.14);

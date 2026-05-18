@@ -9,7 +9,8 @@
                 <asp:Image
                     ID="imgProducto"
                     runat="server"
-                    CssClass="product-detail__image" />
+                    CssClass="product-detail__image"
+                    onerror="this.src='Content/Images/imagen_por_defecto.jpg';"/>
             </div>
 
             <div class="product-detail__info">
