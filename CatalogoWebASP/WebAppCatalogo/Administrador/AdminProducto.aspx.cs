@@ -14,6 +14,8 @@ namespace WebAppCatalogo
     public partial class AdminProducto : System.Web.UI.Page
     {
         private ArticuloNegocio nProducto = new ArticuloNegocio();
+        private MarcaNegocio nMarca = new MarcaNegocio();
+        private CategoriaNegocio nCategoria = new CategoriaNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -21,6 +23,15 @@ namespace WebAppCatalogo
                 if (!IsPostBack)
                 {
                     cargarCatalogo((List<Articulo>)nProducto.listar());
+                    
+                    ddlMarca.DataSource = nMarca.listar();
+                    ddlMarca.DataBind();
+                    ddlMarca.Items.Insert(0, new ListItem("Todas las marcas", "0"));
+
+                    ddlCategoria.DataSource = nCategoria.listar();
+                    ddlCategoria.DataBind();
+                    ddlCategoria.Items.Insert(0, new ListItem("Todas las Categorias", "0"));
+
                     tablaCatalogo.Visible = true;
                 }
             }
@@ -73,6 +84,8 @@ namespace WebAppCatalogo
                     {
                         cargarCatalogo(listaFiltrada);
                         tablaCatalogo.Visible = listaFiltrada.Any();
+
+                        Session.Add("lista", listaFiltrada );
                     }
                     else
                     {
@@ -98,7 +111,12 @@ namespace WebAppCatalogo
         {
             try
             {
-                //accion al desplegar
+                string marca = ddlMarca.Text;
+                if (!marca.IsNullOrWhiteSpace() && ddlMarca.SelectedValue != "0") 
+                {
+                    listaFiltrada = listaFiltrada.FindAll(x => x.Marca.Nombre.Contains(marca));
+                    cargarCatalogo(listaFiltrada);
+                }
             }
             catch(Exception ex)
             {
