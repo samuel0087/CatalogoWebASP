@@ -25,38 +25,26 @@
                         <asp:TextBox
                             ID="txtBuscar"
                             runat="server"
-                            CssClass="admin-products-filter__input"
-                            placeholder="Buscar por nombre, código o descripcion"
-                            AutoPostBack="true"
-                            OnTextChanged="txtBuscar_TextChanged" />
+                            CssClass="admin-products-filter__input" />
 
                         <asp:DropDownList
                             ID="ddlMarca"
                             runat="server"
-                            CssClass="admin-products-filter__select"
-                            AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged">
+                            CssClass="admin-products-filter__select"/>
 
-                              <asp:ListItem Text="Todas las marcas" Value="0" />
-                        </asp:DropDownList>
 
 
                         <asp:DropDownList
                             ID="ddlCategoria"
                             runat="server"
-                            CssClass="admin-products-filter__select"
-                            AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged" >
+                            CssClass="admin-products-filter__select"/>
 
-                            <asp:ListItem Text="Todas las Categorias" Value="0" />
-
-                        </asp:DropDownList>
-
-                        <%--<asp:Button
+                        <asp:Button
                             ID="btnBuscar"
                             runat="server"
                             Text="Buscar"
-                            CssClass="admin-products-filter__button" />--%>
+                            CssClass="admin-products-filter__button" 
+                            OnClick="btnBuscar_Click"/>
                     </section>
 
                     <div class="admin-products-table-wrapper">

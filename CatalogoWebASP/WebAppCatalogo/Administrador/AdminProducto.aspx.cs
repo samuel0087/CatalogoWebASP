@@ -22,7 +22,7 @@ namespace WebAppCatalogo
             {
                 if (!IsPostBack)
                 {
-                    cargarCatalogo((List<Articulo>)nProducto.listar());
+                    cargarCatalogo(nProducto.listar());
                     
                     ddlMarca.DataSource = nMarca.listar();
                     ddlMarca.DataBind();
@@ -57,6 +57,23 @@ namespace WebAppCatalogo
             }
         }
 
+        public List<Articulo> filtratPorTexto(string filtro) 
+        {
+            try
+            {
+               List<Articulo> lista = nProducto.listar().FindAll(   x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) ||
+                                                                                    x.Descripcion.ToUpper().Contains(filtro.ToUpper()) ||
+                                                                                    x.Codigo.ToUpper().Contains(filtro.ToUpper()));
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+                return null;
+            }
+        }
+
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -70,65 +87,36 @@ namespace WebAppCatalogo
             }
         }
 
-        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!txtBuscar.Text.IsNullOrWhiteSpace())
+
+                List<Articulo> listaFiltrada = filtratPorTexto(txtBuscar.Text);
+
+                listaFiltrada = (listaFiltrada.Count > 0 && ddlMarca.SelectedIndex != 0) ? listaFiltrada.FindAll(x => x.Marca.Nombre == ddlMarca.SelectedValue) : listaFiltrada;
+                listaFiltrada = (listaFiltrada.Count > 0 && ddlCategoria.SelectedIndex != 0) ?  listaFiltrada.FindAll(x => x.Categoria.Nombre == ddlCategoria.SelectedValue) : listaFiltrada;
+                if (listaFiltrada.Count > 0)
                 {
-                    List<Articulo> listaFiltrada = nProducto.listar().FindAll(  x => x.Nombre.ToUpper().Contains(txtBuscar.Text.ToUpper()) ||
-                                                                                x.Descripcion.ToUpper().Contains(txtBuscar.Text.ToUpper()) ||
-                                                                                x.Codigo.ToUpper().Contains(txtBuscar.Text.ToUpper()) );
 
-                    if(listaFiltrada.Count > 0)
-                    {
-                        cargarCatalogo(listaFiltrada);
-                        tablaCatalogo.Visible = listaFiltrada.Any();
 
-                        Session.Add("lista", listaFiltrada );
-                    }
-                    else
-                    {
-                        pnlSinResultados.Visible = !listaFiltrada.Any();
-                        tablaCatalogo.Visible = listaFiltrada.Any();
-                        rtrProductos.DataSource = null;
-                        rtrProductos.DataBind();
-                    }
+                    cargarCatalogo(listaFiltrada);
+                    tablaCatalogo.Visible = listaFiltrada.Any();
                 }
                 else
                 {
-                    cargarCatalogo(nProducto.listar());
+                    pnlSinResultados.Visible = !listaFiltrada.Any();
+                    tablaCatalogo.Visible = listaFiltrada.Any();
+                    rtrProductos.DataSource = null;
+                    rtrProductos.DataBind();
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Session.Add("error", ex);
                 Response.Redirect("Error.aspx");
             }
-        }
-
-        protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string marca = ddlMarca.Text;
-                if (!marca.IsNullOrWhiteSpace() && ddlMarca.SelectedValue != "0") 
-                {
-                    listaFiltrada = listaFiltrada.FindAll(x => x.Marca.Nombre.Contains(marca));
-                    cargarCatalogo(listaFiltrada);
-                }
-            }
-            catch(Exception ex)
-            {
-                Session.Add("error", ex);
-                Response.Redirect("../Error.aspx");
-            }
-
-        }
-
-        protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
